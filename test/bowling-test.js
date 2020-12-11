@@ -4,7 +4,7 @@ const expect = chai.expect;
 const totalScore = require('../src/bowling');
 
 describe('totalScore', () => {
-  it('scores game with no strikes or spares', () => {
+  it.skip('scores game with no strikes or spares', () => {
     const scores = '23  23  23  23  23  23  23  23  23  23';
     // frames:  5,  5,  5,  5,  5,  5,  5,  5,  5,  5
     // total:   5, 10, 15, 20, 25, 30, 35, 40, 45, 50    
@@ -25,7 +25,8 @@ describe('totalScore', () => {
     expect(totalScore(scores)).to.equal(60);
   });
 
-  it.skip('scores game with consecutive strikes', () => {
+  it('scores game with consecutive strikes', () => {
+    // eslint-disable-next-line max-len
     // get next 2 rolls so first one is 10 + 10 + 10, 2nd one is 10 + 10 + 2, 3rd one is 10 + 2 + 3
     const scores =  'X   X   X  23  23  23  23  23  23  23';
     // frames: 30, 22, 15,  5,  5,  5,  5,  5,  5,  5
