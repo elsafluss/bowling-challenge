@@ -18,8 +18,9 @@ function totalScore(input) {
   for (let i = 0; i < 11; i++) {
     finalScore.unshift(0) // this fixes the "strike or spare at the first roll" problem
   } // and also "multiple strikes or spares at the beginning"
+  // actually that is still a problem
 
-  //   for spares and strikes:
+  // for spares and strikes:
   let spares = [] // this will hold indices of spares
   let strikes = [] // this will hold indices of strikes
   for (let i = 0; i < finalScore.length; i++) {
@@ -30,9 +31,8 @@ function totalScore(input) {
       strikes.push(i)
     }
   }
-console.log(strikes)
 
-  //   change spares and strikes to their actual scores
+  // change spares and strikes to their actual scores
   spares.forEach(spare => {
     finalScore[spare] = (10 - Number(finalScore[spare - 1]) + Number(finalScore[spare + 1]))
     // change all spares to 10 minus previous plus next one
@@ -41,9 +41,9 @@ console.log(strikes)
   strikes.forEach(strike => { 
     finalScore[strike] = 10 // a strike is 10 points for that frame
     // finalScore.map(score => score.toString()) // if we've already gone 
+    // can iterate over finalScore array and do if (typeOf[index] != number, change to number)
     if (Number(finalScore[strike - 1]) !== 10) { // if the previous frame was a strike, do not subtract it
       finalScore[strike] = Number(finalScore[strike]) - Number(finalScore[strike - 1]) 
-      console.log(finalScore)
     } 
     finalScore[strike] = 10 + Number(finalScore[strike + 1]) + Number(finalScore[strike + 2])
     // change all strikes to 10 minus previous, plus next two
@@ -51,10 +51,8 @@ console.log(strikes)
 })
       
   finalScore = finalScore.map((el => Number(el))) // change values to numbers
-                      
-//   console.log(finalScore)  
+                       
   finalScore = finalScore.reduce((total, value) => { // now we're adding all those frame final scores
-    // console.log(total)
     return total + value
   }, 0)
   return finalScore 
