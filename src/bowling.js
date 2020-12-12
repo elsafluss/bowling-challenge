@@ -60,5 +60,7 @@ console.log(strikes)
   return finalScore 
 }
 
+// if there's more than one strike or spare in a row, i can't use Number() like this, because
+// then it's running on items that have already been turned to numbers
 
 module.exports = totalScore;
