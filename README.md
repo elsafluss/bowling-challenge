@@ -66,3 +66,8 @@ strike function
     reset roll count (maybe just decrement by 1?)
     if first (new) roll = 10, this.roll score = 20
     if second (new) roll = 10, this.roll score = 20
+    
+    
+    
+    
+This was one of the first code challenges we were given at Turing, and I had a great time breaking down the problem into something I could understand, then building a solution piece by piece. It may not be pretty, but given my knowledge and experience at the time, I'm proud of it!
